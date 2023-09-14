@@ -18,7 +18,6 @@ const Favourites = () => {
         // setJobs(data);
         // console.log(data[0]);
         setFavourites([...favourites, data[0]]);
-        return data[0];
       } else {
         alert("Error fetching results");
       }
