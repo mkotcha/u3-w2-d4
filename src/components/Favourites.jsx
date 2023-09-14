@@ -14,10 +14,8 @@ const Favourites = () => {
       const response = await fetch(url);
       if (response.ok) {
         const { data } = await response.json();
-        // console.log(data);
-        // setJobs(data);
-        // console.log(data[0]);
-        setFavourites([...favourites, data[0]]);
+        setFavourites(prevfav => [...prevfav, data[0]]);
+        console.log(favourites);
       } else {
         alert("Error fetching results");
       }
