@@ -31,7 +31,7 @@ const Favourites = () => {
     favouritesNames.forEach(elm => fetchFavourite(elm));
   };
 
-  useEffect(() => fetchFavourites(), []]);
+  useEffect(() => fetchFavourites(), []);
 
   return (
     <>
