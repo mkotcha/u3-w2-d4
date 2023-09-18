@@ -7,6 +7,7 @@ import { Container } from "react-bootstrap";
 const Favourites = () => {
   const favouritesNames = useSelector(state => state.favourites.content);
   const [favourites, setFavourites] = useState([]);
+
   useEffect(() => {
     const fetchFavourite = async favouriteName => {
       const url = "https://strive-benchmark.herokuapp.com/api/jobs?company=" + favouriteName;
@@ -16,7 +17,6 @@ const Favourites = () => {
         if (response.ok) {
           const { data } = await response.json();
           setFavourites(prevfav => [...prevfav, data[0]]);
-          console.log(favourites);
         } else {
           alert("Error fetching results");
         }
@@ -26,8 +26,6 @@ const Favourites = () => {
     };
 
     const fetchFavourites = () => {
-      console.log("store : ", favouritesNames.length);
-      console.log("hoock : ", favourites.length);
       favouritesNames.forEach(elm => fetchFavourite(elm));
     };
 
